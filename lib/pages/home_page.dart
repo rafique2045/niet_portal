@@ -2,13 +2,20 @@
 
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:niet_portal/comoponents/custom_drawer.dart';
 import 'package:niet_portal/comoponents/custom_widgets.dart';
 
-class HomePage extends StatelessWidget {
-  HomePage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
-  var ktextStyle = GoogleFonts.ibmPlexSans();
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  var kTextStyle = GoogleFonts.ibmPlexSans();
 
   var kTitleStyle = GoogleFonts.ibmPlexSans(
       fontSize: 18, color: Colors.black, fontWeight: FontWeight.bold);
@@ -21,29 +28,58 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // bottomNavigationBar: BottomNavigationBar(items: []),
+      endDrawer:CustomDrawer() ,
+      appBar: AppBar(
+        backgroundColor: Colors.blue[300],
+        toolbarHeight: 50,
+        centerTitle: true,
+        title:Container(
+          decoration: BoxDecoration(
+            color: Colors.amberAccent,
+            borderRadius: BorderRadius.circular(15.r),
+          ),
+
+          child: Text(
+            'NIET PORTAL',
+            style: GoogleFonts.poppins(
+                color: Colors.black, fontSize: 22, fontWeight: FontWeight.w700,),
+          ),
+        ) ,
+
+        leadingWidth:80 ,
+
+        leading: Text(
+          "Hi, Rafique",
+          style: kTextStyle.copyWith(
+              color: Colors.black,
+              fontSize: 18,
+              fontWeight: FontWeight.w700),
+          //textAlign: TextAlign.start,
+        ),
+
+      ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.only(left: 5.0, right: 5.0),
+
 
         //main Column , Everything will be Under these
         child: Column(
           // Header
           children: [
-            _headerSection("Md Rafique", Icons.person),
+           // _headerSection("Md Rafique", Icons.person),
             SizedBox(
-              height: 12,
+              height: 12.h,
             ),
             _attendenceSection(),
             SizedBox(
-              height: 12,
+              height: 12.h,
             ),
             accountStatus(),
             SizedBox(
-              height: 12,
+              height: 12.h,
             ),
             _messageBox(),
             SizedBox(
-              height: 12,
+              height: 12.h,
             ),
             RoutineSection(),
           ],
@@ -52,7 +88,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-//Message Sectoin
+//Message Section
   Widget _messageBox() {
     return Container(
       margin: EdgeInsets.all(8.0),
@@ -130,7 +166,7 @@ class HomePage extends StatelessWidget {
                 children: [
                   Text(
                     "Paid",
-                    style: ktextStyle.copyWith(
+                    style: kTextStyle.copyWith(
                         fontSize: 22,
                         color: Colors.black,
                         fontWeight: FontWeight.w800),
@@ -140,7 +176,7 @@ class HomePage extends StatelessWidget {
                   ),
                   Text(
                     "৳ 73000",
-                    style: ktextStyle.copyWith(
+                    style: kTextStyle.copyWith(
                         fontSize: 22,
                         color: Colors.black,
                         fontWeight: FontWeight.w800),
@@ -161,7 +197,7 @@ class HomePage extends StatelessWidget {
                 children: [
                   Text(
                     "Dues",
-                    style: ktextStyle.copyWith(
+                    style: kTextStyle.copyWith(
                         fontSize: 22,
                         color: Colors.black,
                         fontWeight: FontWeight.w800),
@@ -171,7 +207,7 @@ class HomePage extends StatelessWidget {
                   ),
                   Text(
                     "৳ 2600",
-                    style: ktextStyle.copyWith(
+                    style: kTextStyle.copyWith(
                         fontSize: 22,
                         color: Colors.black,
                         fontWeight: FontWeight.w800),
@@ -185,29 +221,30 @@ class HomePage extends StatelessWidget {
     );
   }
 
-//Attendence Section
+//Attendence Section naughty
+
   Widget _attendenceSection() {
     int value = 70;
     int value2 = 30;
 
     return AspectRatio(
-      aspectRatio: 1.5,
+      aspectRatio: 1.5.r,
       child: Container(
         //height: 200,
-        margin: EdgeInsets.all(10),
-        padding: EdgeInsets.all(8.0),
+        margin: EdgeInsets.all(10).r,
+        padding: EdgeInsets.all(8.0).r,
         decoration: BoxDecoration(
-            color: Colors.blue[300], borderRadius: BorderRadius.circular(15)),
+            color: Colors.blue[300], borderRadius: BorderRadius.circular(15).r,),
         child: Column(
           children: [
             Expanded(
               flex: 1,
               child: Text(
                 'Attendance',
-                style: ktextStyle.copyWith(
+                style: kTextStyle.copyWith(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
-                  fontSize: 20,
+                  fontSize: 20.sp,
                 ),
               ),
             ),
@@ -223,21 +260,21 @@ class HomePage extends StatelessWidget {
                           value: value.toDouble(),
                           color: Colors.greenAccent,
                           title: '$value%',
-                          titleStyle: ktextStyle.copyWith(
+                          titleStyle: kTextStyle.copyWith(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
-                              fontSize: 18),
-                          radius: 50,
+                              fontSize: 18.sp),
+                          radius: 50.r,
                         ),
                         PieChartSectionData(
-                            radius: 50,
+                            radius: 50.r,
                             value: value2.toDouble(),
                             color: Colors.pinkAccent,
                             title: '$value2%',
-                            titleStyle: ktextStyle.copyWith(
+                            titleStyle: kTextStyle.copyWith(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 18)),
+                                fontSize: 18.sp)),
                       ],
                     )),
                   ),
@@ -249,21 +286,21 @@ class HomePage extends StatelessWidget {
                         Row(
                           children: [
                             SizedBox(
-                              height: 10,
-                              width: 15,
+                              height: 10.h,
+                              width: 15.w,
                               child: Container(
                                 color: Colors.greenAccent,
                               ),
                             ),
                             SizedBox(
-                              width: 10,
+                              width: 10.w,
                             ),
                             Text(
                               'Present',
-                              style: ktextStyle.copyWith(
+                              style: kTextStyle.copyWith(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 14,
+                                fontSize: 14.sp,
                               ),
                             ),
                           ],
@@ -271,21 +308,21 @@ class HomePage extends StatelessWidget {
                         Row(
                           children: [
                             SizedBox(
-                              height: 10,
-                              width: 15,
+                              height: 10.h,
+                              width: 15.w,
                               child: Container(
                                 color: Colors.pinkAccent,
                               ),
                             ),
                             SizedBox(
-                              width: 10,
+                              width: 10.w,
                             ),
                             Text(
                               'Absent',
-                              style: ktextStyle.copyWith(
+                              style: kTextStyle.copyWith(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 14,
+                                fontSize: 14.sp,
                               ),
                             ),
                           ],
@@ -305,35 +342,36 @@ class HomePage extends StatelessWidget {
 //Header Widget
   Widget _headerSection(String name, IconData icon) {
     return Container(
-      padding: EdgeInsets.only(left: 8.0, right: 8.0, top: 25),
+      padding: EdgeInsets.only(left: 12.0.r, right: 12.0.r, top: 30.h, bottom: 8.h),
       decoration: BoxDecoration(
         color: Colors.blue[300],
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(13),
-          bottomRight: Radius.circular(13),
+          bottomLeft: Radius.circular(13.r),
+          bottomRight: Radius.circular(13.r),
         ),
       ),
-      height: 120,
+      height: 130.h,
+      width: double.infinity,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Column(
-            spacing: 3,
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 "Hello,",
-                style: ktextStyle.copyWith(
+                style: kTextStyle.copyWith(
                   color: Colors.black,
-                  fontSize: 20,
+                  fontSize: 20.sp,
                 ),
               ),
+              SizedBox(height: 3.h),
               Text(
                 name,
-                style: ktextStyle.copyWith(
+                style: kTextStyle.copyWith(
                     color: Colors.black,
-                    fontSize: 20,
+                    fontSize: 20.sp,
                     fontWeight: FontWeight.w700),
               ),
             ],
@@ -341,24 +379,35 @@ class HomePage extends StatelessWidget {
           Text(
             'NIET PORTAL',
             style: GoogleFonts.poppins(
-                color: Colors.black, fontSize: 22, fontWeight: FontWeight.w700),
+                color: Colors.black, fontSize: 22.sp, fontWeight: FontWeight.w700),
           ),
-          SizedBox(
-            width: 8,
-          ),
-          CircleAvatar(
-            child: Icon(
-              icon,
-              color: const Color.fromARGB(255, 107, 11, 75),
-              shadows: [
-                Shadow(color: Colors.blueAccent),
-              ],
+          SizedBox(width: 8.w),
+          GestureDetector(
+            onTap:() {
+             setState(() {
+
+
+             });
+
+            },
+            child: CircleAvatar(
+              backgroundColor: Colors.white,
+              child: Icon(
+                icon,
+                color: const Color.fromARGB(255, 107, 11, 75),
+                shadows: [
+                  Shadow(color: Colors.blueAccent),
+                ],
+              ),
             ),
           )
         ],
       ),
     );
+
   }
+
+
 }
 
 class MessageTile extends StatelessWidget {

@@ -19,7 +19,7 @@ class AccountsPage extends StatelessWidget {
         backgroundColor: Colors.blue[300],
         title: Text(
           'Accounts',
-          style: ktextStyle.copyWith(fontWeight: FontWeight.w900),
+          style: kTextStyle.copyWith(fontWeight: FontWeight.w900),
         ),
         actions: [Icon(Icons.search)],
       ),
@@ -70,7 +70,7 @@ class AccountsPage extends StatelessWidget {
         children: [
           Text(title, style: kTitleStyle.copyWith(fontSize: 16)),
           Text(value,
-              style: ktextStyle.copyWith(
+              style: kTextStyle.copyWith(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
                 color: isDue ? Colors.red : Colors.green,

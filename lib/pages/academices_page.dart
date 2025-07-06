@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:niet_portal/comoponents/custom_drawer.dart';
 import 'package:niet_portal/constants.dart';
+
 
 class AcademicesPage extends StatelessWidget {
   const AcademicesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
+      endDrawer: CustomDrawer(),
       appBar: AppBar(
         backgroundColor: Colors.blue[400],
         title: Text(
