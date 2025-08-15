@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:niet_portal/attendance_section/attendance_page.dart';
+import 'package:niet_portal/roboto/ai_chat_page.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -12,7 +14,7 @@ class CustomDrawer extends StatelessWidget {
         children: <Widget>[
           DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: Colors.blue[400],
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -25,9 +27,9 @@ class CustomDrawer extends StatelessWidget {
                   ),
                 ),
                 GestureDetector(
-                  onTap:() {
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Profile Clicked")));
-
+                  onTap: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("Profile Clicked")));
                   },
                   child: CircleAvatar(
                     backgroundColor: Colors.white,
@@ -44,11 +46,18 @@ class CustomDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
+            leading: Icon(Icons.mark_chat_read),
+            title: const Text('MR.ROBOTO'),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => AiChatPage()));
+            },
+          ),
+          ListTile(
             leading: const Icon(Icons.person),
             title: const Text('Personal Information'),
             onTap: () {
               // Navigate to home page or perform an action
-
             },
           ),
           ListTile(
@@ -56,7 +65,8 @@ class CustomDrawer extends StatelessWidget {
             title: const Text('Attendances'),
             onTap: () {
               // Navigate to settings page or perform an action
-
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => AttendancePage()));
             },
           ),
           ListTile(
@@ -64,12 +74,10 @@ class CustomDrawer extends StatelessWidget {
             title: const Text('About NIET'),
             onTap: () {
               // Navigate to about us page or perform an action
-
             },
           ),
         ],
       ),
-
-    );;
+    );
   }
 }

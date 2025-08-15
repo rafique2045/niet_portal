@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:niet_portal/constants.dart';
 
@@ -22,8 +23,8 @@ class _RoutineSectionState extends State<RoutineSection> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(8.0),
-      padding: EdgeInsets.all(8.0),
+      margin: EdgeInsets.all(8.0).r,
+      padding: EdgeInsets.all(8.0).r,
       //height: 400,
       //width: 400,
       decoration: BoxDecoration(
@@ -212,9 +213,9 @@ class ClassTile extends StatelessWidget {
       required this.time,
       required this.teacher});
   final TextStyle ksubjectStyle = GoogleFonts.ibmPlexSans(
-      fontSize: 18, color: Colors.black, fontWeight: FontWeight.bold);
+      fontSize: 12.sp, color: Colors.black, fontWeight: FontWeight.bold);
   final TextStyle ktimeStyle = GoogleFonts.ibmPlexSans(
-    fontSize: 15,
+    fontSize: 12.sp,
     color: Colors.black,
   );
   final String subject, time, teacher;
@@ -253,7 +254,7 @@ class ClassTile extends StatelessWidget {
 
 class Teachers {
   static String tafsirul = 'Md.Tafsirul Islam';
-  static String jobayer = 'Abdur Rahaman Zubayer';
+  static String jobayer = 'Abdur Rahaman Jubayer';
   static String sahid = 'Md.Shahid Miah';
   static String sangita = 'Sangita Dey';
 }
@@ -263,7 +264,7 @@ class Subjects {
   static String java = 'Application Development Using Java';
   static String web = 'Web Design and Development';
   static String os = 'Operating System';
-  static String cam = 'Computer Architecture and Microprocssor';
+  static String cam = 'Computer Architecture and Microprocessor';
   static String pw = 'Project Work-01';
   static String accounting = 'Accounting';
   static String dataCommunication = 'Data Communication';

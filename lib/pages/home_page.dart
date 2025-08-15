@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:niet_portal/comoponents/custom_drawer.dart';
-import 'package:niet_portal/comoponents/custom_widgets.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -28,48 +27,40 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      endDrawer:CustomDrawer() ,
+      endDrawer: CustomDrawer(),
       appBar: AppBar(
         backgroundColor: Colors.blue[300],
-        toolbarHeight: 50,
+        toolbarHeight: 60,
         centerTitle: true,
-        title:Container(
-          decoration: BoxDecoration(
-            color: Colors.amberAccent,
-            borderRadius: BorderRadius.circular(15.r),
+        title: Text(
+          'NIET PORTAL',
+          style: GoogleFonts.poppins(
+            color: Colors.black,
+            fontSize: 22,
+            fontWeight: FontWeight.w700,
           ),
-
-          child: Text(
-            'NIET PORTAL',
-            style: GoogleFonts.poppins(
-                color: Colors.black, fontSize: 22, fontWeight: FontWeight.w700,),
-          ),
-        ) ,
-
-        leadingWidth:80 ,
-
-        leading: Text(
-          "Hi, Rafique",
-          style: kTextStyle.copyWith(
-              color: Colors.black,
-              fontSize: 18,
-              fontWeight: FontWeight.w700),
-          //textAlign: TextAlign.start,
         ),
-
+        leadingWidth: 80,
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 8.0),
+          child: Text(
+            "Hi, Rafique",
+            style: kTextStyle.copyWith(
+                color: Colors.black, fontSize: 18, fontWeight: FontWeight.w700),
+            //textAlign: TextAlign.start,
+          ),
+        ),
       ),
       body: SingleChildScrollView(
-
-
         //main Column , Everything will be Under these
         child: Column(
           // Header
           children: [
-           // _headerSection("Md Rafique", Icons.person),
+            // _headerSection("Md Rafique", Icons.person),
             SizedBox(
               height: 12.h,
             ),
-            _attendenceSection(),
+            _attendanceSection(),
             SizedBox(
               height: 12.h,
             ),
@@ -81,7 +72,7 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 12.h,
             ),
-            RoutineSection(),
+            //RoutineSection(),
           ],
         ),
       ),
@@ -91,19 +82,19 @@ class _HomePageState extends State<HomePage> {
 //Message Section
   Widget _messageBox() {
     return Container(
-      margin: EdgeInsets.all(8.0),
-      padding: EdgeInsets.only(top: 10),
-      height: 300,
+      margin: EdgeInsets.all(8.0).r,
+      padding: EdgeInsets.only(top: 10).r,
+      height: 300.h,
       decoration: BoxDecoration(
         color: Colors.blue[300],
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(15).r,
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
-            height: 8,
+            height: 8.h,
           ),
           Expanded(
               flex: 1,
@@ -158,7 +149,7 @@ class _HomePageState extends State<HomePage> {
         Expanded(
           child: Container(
             margin: EdgeInsets.only(left: 8.0, right: 8.0),
-            height: 120,
+            height: 120.h,
             child: Card(
               color: Colors.greenAccent,
               child: Column(
@@ -167,17 +158,17 @@ class _HomePageState extends State<HomePage> {
                   Text(
                     "Paid",
                     style: kTextStyle.copyWith(
-                        fontSize: 22,
+                        fontSize: 22.sp,
                         color: Colors.black,
                         fontWeight: FontWeight.w800),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 10.h,
                   ),
                   Text(
                     "৳ 73000",
                     style: kTextStyle.copyWith(
-                        fontSize: 22,
+                        fontSize: 22.sp,
                         color: Colors.black,
                         fontWeight: FontWeight.w800),
                   ),
@@ -188,8 +179,8 @@ class _HomePageState extends State<HomePage> {
         ),
         Expanded(
           child: Container(
-            margin: EdgeInsets.only(left: 8.0, right: 8.0),
-            height: 120,
+            margin: EdgeInsets.only(left: 8.0, right: 8.0).r,
+            height: 120.h,
             child: Card(
               color: Colors.pink[300],
               child: Column(
@@ -198,17 +189,17 @@ class _HomePageState extends State<HomePage> {
                   Text(
                     "Dues",
                     style: kTextStyle.copyWith(
-                        fontSize: 22,
+                        fontSize: 22.sp,
                         color: Colors.black,
                         fontWeight: FontWeight.w800),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 10.h,
                   ),
                   Text(
                     "৳ 2600",
                     style: kTextStyle.copyWith(
-                        fontSize: 22,
+                        fontSize: 22.sp,
                         color: Colors.black,
                         fontWeight: FontWeight.w800),
                   ),
@@ -221,9 +212,9 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-//Attendence Section naughty
+//Attendance Section naughty
 
-  Widget _attendenceSection() {
+  Widget _attendanceSection() {
     int value = 70;
     int value2 = 30;
 
@@ -234,7 +225,9 @@ class _HomePageState extends State<HomePage> {
         margin: EdgeInsets.all(10).r,
         padding: EdgeInsets.all(8.0).r,
         decoration: BoxDecoration(
-            color: Colors.blue[300], borderRadius: BorderRadius.circular(15).r,),
+          color: Colors.blue[300],
+          borderRadius: BorderRadius.circular(15).r,
+        ),
         child: Column(
           children: [
             Expanded(
@@ -263,18 +256,18 @@ class _HomePageState extends State<HomePage> {
                           titleStyle: kTextStyle.copyWith(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
-                              fontSize: 18.sp),
-                          radius: 50.r,
+                              fontSize: 18.r),
+                          radius: 40.r,
                         ),
                         PieChartSectionData(
-                            radius: 50.r,
+                            radius: 40.r,
                             value: value2.toDouble(),
                             color: Colors.pinkAccent,
                             title: '$value2%',
                             titleStyle: kTextStyle.copyWith(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 18.sp)),
+                                fontSize: 18.r)),
                       ],
                     )),
                   ),
@@ -342,7 +335,8 @@ class _HomePageState extends State<HomePage> {
 //Header Widget
   Widget _headerSection(String name, IconData icon) {
     return Container(
-      padding: EdgeInsets.only(left: 12.0.r, right: 12.0.r, top: 30.h, bottom: 8.h),
+      padding:
+          EdgeInsets.only(left: 12.0.r, right: 12.0.r, top: 30.h, bottom: 8.h),
       decoration: BoxDecoration(
         color: Colors.blue[300],
         borderRadius: BorderRadius.only(
@@ -379,16 +373,14 @@ class _HomePageState extends State<HomePage> {
           Text(
             'NIET PORTAL',
             style: GoogleFonts.poppins(
-                color: Colors.black, fontSize: 22.sp, fontWeight: FontWeight.w700),
+                color: Colors.black,
+                fontSize: 22.sp,
+                fontWeight: FontWeight.w700),
           ),
           SizedBox(width: 8.w),
           GestureDetector(
-            onTap:() {
-             setState(() {
-
-
-             });
-
+            onTap: () {
+              setState(() {});
             },
             child: CircleAvatar(
               backgroundColor: Colors.white,
@@ -404,10 +396,7 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
-
   }
-
-
 }
 
 class MessageTile extends StatelessWidget {

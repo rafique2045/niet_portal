@@ -6,7 +6,7 @@ var kTextStyle = GoogleFonts.ibmPlexSans();
 var kTitleStyle = GoogleFonts.ibmPlexSans(
   color: Colors.black,
   fontWeight: FontWeight.bold,
-  fontSize: 18.sp,
+  fontSize: 16.sp,
 );
 var kSubTitleStyle = GoogleFonts.ibmPlexSans(
   fontSize: 14.sp,

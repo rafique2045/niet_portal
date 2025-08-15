@@ -1,7 +1,9 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lucide_icons/lucide_icons.dart';
+import 'package:niet_portal/comoponents/custom_drawer.dart';
 import 'package:niet_portal/constants.dart';
 
 var kPayStyle = GoogleFonts.ibmPlexSans(
@@ -15,23 +17,24 @@ class AccountsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      endDrawer: CustomDrawer(),
       appBar: AppBar(
         backgroundColor: Colors.blue[300],
         title: Text(
           'Accounts',
           style: kTextStyle.copyWith(fontWeight: FontWeight.w900),
         ),
-        actions: [Icon(Icons.search)],
+        //actions: [Icon(Icons.search)],
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16),
+        padding: EdgeInsets.all(16).r,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _buildSummaryCard(),
-            SizedBox(height: 16),
+            SizedBox(height: 10.h),
             _buildUpcomingPayment(),
-            SizedBox(height: 16),
+            SizedBox(height: 10.h),
             _buildPaymentHistory(),
             //SizedBox(height: 10),
           ],
@@ -51,8 +54,8 @@ class AccountsPage extends StatelessWidget {
           children: [
             Text('Fee Summary',
                 style: kTitleStyle.copyWith(
-                    fontSize: 18, fontWeight: FontWeight.bold)),
-            SizedBox(height: 12),
+                    fontSize: 18.sp, fontWeight: FontWeight.bold)),
+            SizedBox(height: 12.h),
             _buildSummaryRow('Total Fee', '৳ 50,000'),
             _buildSummaryRow('Paid', '৳ 30,000'),
             _buildSummaryRow('Due', '৳ 20,000', isDue: true),
@@ -64,14 +67,14 @@ class AccountsPage extends StatelessWidget {
 
   Widget _buildSummaryRow(String title, String value, {bool isDue = false}) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4),
+      padding: const EdgeInsets.symmetric(vertical: 4).r,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(title, style: kTitleStyle.copyWith(fontSize: 16)),
+          Text(title, style: kTitleStyle.copyWith(fontSize: 16.sp)),
           Text(value,
               style: kTextStyle.copyWith(
-                fontSize: 16,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.bold,
                 color: isDue ? Colors.red : Colors.green,
               )),

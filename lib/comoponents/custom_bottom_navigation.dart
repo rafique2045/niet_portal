@@ -1,34 +1,50 @@
-// class CustomBottomNavigation extends StatelessWidget {
-//   const CustomBottomNavigation({super.key});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return BottomNavigationBar(
-//       items: const <BottomNavigationBarItem>[
-//         BottomNavigationBarItem(
-//           icon: Icon(Icons.inbox),
-//           label: 'Inbox',
-//         ),
-//         BottomNavigationBarItem(
-//           icon: Icon(Icons.star),
-//           label: 'Starred',
-//         ),
-//         BottomNavigationBarItem(
-//           icon: Icon(Icons.send),
-//           label: 'Sent',
-//         ),
-//         BottomNavigationBarItem(
-//           icon: Icon(Icons.drafts),
-//           label: 'Drafts',
-//         ),
-//       ],
-//       currentIndex: _selectedIndex, // The currently selected item
-//       selectedItemColor: Colors.blueAccent, // Color for the selected icon/label
-//       unselectedItemColor: Colors.grey, // Color for unselected icons/labels
-//       onTap: _onItemTapped, // Callback when an item is tapped
-//       type: BottomNavigationBarType.fixed, // Ensures all labels are visible
-//       backgroundColor: Colors.white, // Background color of the bar
-//       elevation: 8.0, // Shadow beneath the bar
-//     ),);
-//   }
-// }
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+class CustomBottomNavigation extends StatefulWidget {
+  final int selectedIndex;
+  final Function(int) onItemTapped;
+
+  const CustomBottomNavigation({
+    super.key,
+    required this.selectedIndex,
+    required this.onItemTapped,
+  });
+
+  @override
+  State<CustomBottomNavigation> createState() => _CustomBottomNavigationState();
+}
+
+class _CustomBottomNavigationState extends State<CustomBottomNavigation> {
+  @override
+  Widget build(BuildContext context) {
+    return BottomNavigationBar(
+      items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.payment_rounded),
+          label: 'Accounts',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.school),
+          label: 'Academics',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.article),
+          label: 'Blogs',
+        ),
+      ],
+      currentIndex: widget.selectedIndex,
+      selectedItemColor: Colors.indigo,
+      unselectedItemColor: Colors.black,
+      onTap: widget.onItemTapped,
+      type: BottomNavigationBarType.fixed,
+      backgroundColor: Colors.blue[400],
+      elevation: 0,
+      selectedFontSize: 14.sp,
+    );
+  }
+}
